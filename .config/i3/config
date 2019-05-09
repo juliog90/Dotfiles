@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:Ubuntu 6
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,18 +30,16 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec termite
 
 # my hotkeys
 
-#opera
-bindsym $mod+b exec opera 
+#chrome
+bindsym $mod+b exec google-chrome-stable 
 # code
 bindsym $mod+c exec code
 # postman
 bindsym $mod+p exec postman
-# umount usb
-# bindsym $mod+u udisks --unmount /dev/sdb1
 
 # multimedia keys
 # volume +
@@ -67,7 +65,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -nb '#26122D' -sf '#DDD1E6' -sb '#5625B7' -fn "-ubuntu*-12-*"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -194,12 +192,44 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# border Colors
+set $bg     #2c2c2e
+set $fg     #90769F
+set $hi     #AA8FEF
+set $ac     #A8A0AF
+set $tx     #040404
+set $ia     #8f8f8f
+set $be     #8faf9f
+set $yw     #ccdc90
+set $gn     #88b090
+set $rd     #e89393
+
+# set some nice colors      border     background  text
+client.focused              $ac        $ac         $tx
+client.unfocused            $bg        $bg         $ia
+client.focused_inactive     $bg        $bg         $ac
+client.urgent               $rd        $rd         $tx
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
 	# names not numbers
 	strip_workspace_numbers yes
+
+          colors {
+           background #1D172B
+           statusline #DADADA
+           separator #1D172B
+           #                  border  backgr. text
+           focused_workspace  #4E316B #562877 #E9DEEE
+           active_workspace   #833582 #5f676a #ffffff
+           inactive_workspace #333333 #74657E #390A4E
+           urgent_workspace   #2F343A #862638 #ffffff
+        }
+
+        font pango:Ubuntu Sans 8
+        position top
 }
 
 # background image
@@ -223,9 +253,3 @@ exec xmodmap ~/.speedswapper
 
 # battery indicator
 exec --no-startup-id i3-battery-popup -n
-
-# i3 layouts
-# exec --no-startup-id "i3-msg 'eDP-1; append_layout /home/juliodev/.config/i3/webWork.json'"
-# applications for workspaces
-# vs code
-# assign [class=code$] 5

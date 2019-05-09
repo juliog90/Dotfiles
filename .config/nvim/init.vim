@@ -144,6 +144,7 @@ Plug 'tobyS/pdV'
 
 "Themes
 Plug 'kaicataldo/material.vim'
+" Plug 'danilo-augusto/vim-afterglow'
 
 "Emmet
 Plug 'mattn/emmet-vim'
