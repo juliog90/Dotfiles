@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-fill '/home/juliodev/Wallpapers/dark-purple.jpg' 
+feh --no-fehbg --bg-fill '/home/juliodev/Wallpapers/dark-purple.jpg' 

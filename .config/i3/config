@@ -35,7 +35,7 @@ bindsym $mod+Return exec termite
 # my hotkeys
 
 #chrome
-bindsym $mod+b exec google-chrome-stable 
+bindsym $mod+b exec firefox 
 # code
 bindsym $mod+c exec code
 # postman
